@@ -57,6 +57,8 @@ gillianbc@Gillians-MacBook Versions % minikube service my-service
 | default   | my-service |             | http://127.0.0.1:56751 |
 |-----------|------------|-------------|------------------------|
 
+## Kubectl Cheatsheet
+https://jamesdefabia.github.io/docs/user-guide/kubectl-cheatsheet/
 
 ## Creating a Replica Set Using a Yaml (Don't do this)
 e.g. replic.yml is:

@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kubia-deployment
+  labels:
+    app: kubia
+    creation_method: deployment
+    env: prod
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: kubia
+  template:
+    metadata:
+      labels:
+        app: kubia
+    spec:
+      containers:
+      - name: kubia
+        image: gillianbc/kubia
+        ports:
+        - containerPort: 8080

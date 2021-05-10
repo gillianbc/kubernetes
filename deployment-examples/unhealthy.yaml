@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kubia-deployment
+  labels:
+    app: kubia
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kubia
+  template:
+    metadata:
+      labels:
+        app: kubia
+        desc: bad-sometimes
+      annotations:
+        desc: 'Will fail every 5th time'
+    spec:
+      containers:
+      - name: kubia
+        image: luksa/kubia-unhealthy
+        livenessProbe:
+          initialDelaySeconds: 15
+          httpGet:
+            path: /
+            port: 8080
+          
